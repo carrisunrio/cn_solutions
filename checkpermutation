@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class runner {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		String input1 = s.next();
+		String input2 = s.next();
+		System.out.println(solution.isPermutation(input1, input2));
+	}
+}
+public class solution {
+
+	public static boolean isPermutation(String input1, String input2) {
+	
+        char str1[]=(input1).toCharArray();
+        char str2[]=(input2).toCharArray();
+        
+        int count1[]= new int[256];
+     for(int i=0;i<count1.length;i++){
+         count1[i]=0;
+     }
+        int count2[]= new int[256];
+     for(int i=0;i<count2.length;i++){
+         count2[i]=0;
+     }
+        
+        for(int i=0;i<str1.length && i<str2.length;i++){
+            count1[str1[i]]++;
+            count2[str2[i]]++;
+        }
+        
+        if(str1.length != str2.length)
+            return false;
+        
+        for(int i=0;i<256;i++){
+            if(count1[i]!=count2[i])
+                return false;
+        }
+        return true;
+	}
+}
+
+
+
+
