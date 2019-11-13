@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class runner {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		String input = s.nextLine();
+		System.out.println(solution.highestOccuringCharacter(input));
+	}
+}
+// highest occurring character in the String.
+public class solution {
+
+	public static char highestOccuringCharacter(String inputString) {
+		// Write your code here
+        int freq[]=new int[256];
+        int len=inputString.length();
+        
+        for(int i=0;i<len;i++){
+            freq[inputString.charAt(i)]++;
+        }
+        
+        int max=-1;
+        char result=' ';
+        for(int i=0;i<len;i++){
+            if(max< freq[inputString.charAt(i)]){
+                max= freq[inputString.charAt(i)];
+                result=inputString.charAt(i);
+            }
+        }
+        return result;
+
+	}
+}
