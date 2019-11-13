@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class runner {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		String input = s.next();
+		System.out.println(solution.removeConsecutiveDuplicates(input));
+	}
+}
+public class solution {
+
+	public static String removeConsecutiveDuplicates(String input) {
+	    // Write your code here
+
+		char prev = '\0';
+		int k = 0;
+        char[] chars=input.toCharArray();
+
+		for (int i = 0; i < chars.length; i++)
+		{
+			if (prev != chars[i]) {
+				chars[k++] = chars[i];
+				prev = chars[i];
+			}
+		}
+
+		return new String(chars).substring(0, k);
+	}
+}
